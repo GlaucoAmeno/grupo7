@@ -3,10 +3,93 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <meta charset="UTF-8"></meta>
+	<title>LoCar</title>
+        <style>
+            label {
+                width: 150px;
+		display: inline-block;
+            }
+
+            div {
+                height: 5px;
+            }
+
+            th {
+                font-size: 25px;
+            }
+
+            td {
+                padding: 20px;
+            }
+	</style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h1>LoCar - Locadora de Carros</h1>
+            <table>
+		<tr>
+                    <th>Carro</th>
+                    <th>Cliente</th>
+                    <th>Aluguel</th>
+		</tr>
+		<tr>
+                    <td>
+                        <h:form>
+                            <label>Marca</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Modelo</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Ano</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Placa</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
+                        </h:form>
+                    </td>
+                    <td>
+                        <h:form>
+                            <label>Nome</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Data de Nascimento</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>CPF</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Endereço</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>Telefone</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
+                        </h:form>
+                        
+                    </td>
+                    <td>
+                        <h:form>
+                            <label>Placa do Carro</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <label>CPF do Cliente</label>
+                            <h:inputText></h:inputText>
+                            <div></div>
+                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
+                        </h:form>
+                        
+                    </td>
+		</tr>
+            </table>
+            <hr></hr>
+            <table>
+                
+            </table>
+        
     </h:body>
 </html>
 
