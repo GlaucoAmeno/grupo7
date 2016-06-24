@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.locar.CRUD;
 
 import java.io.Serializable;
@@ -17,37 +12,39 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Felipe
- */
 @Entity
 @Table(name = "carros")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Carros.findAll", query = "SELECT c FROM Carros c"),
-    @NamedQuery(name = "Carros.findByMarca", query = "SELECT c FROM Carros c WHERE c.marca = :marca"),
-    @NamedQuery(name = "Carros.findByModelo", query = "SELECT c FROM Carros c WHERE c.modelo = :modelo"),
-    @NamedQuery(name = "Carros.findByAno", query = "SELECT c FROM Carros c WHERE c.ano = :ano"),
     @NamedQuery(name = "Carros.findByPlaca", query = "SELECT c FROM Carros c WHERE c.placa = :placa"),
+    @NamedQuery(name = "Carros.findByMarca", query = "SELECT c FROM Carros c WHERE c.marca = :marca"),
+    @NamedQuery(name = "Carros.findByAno", query = "SELECT c FROM Carros c WHERE c.ano = :ano"),
+    @NamedQuery(name = "Carros.findByModelo", query = "SELECT c FROM Carros c WHERE c.modelo = :modelo"),
     @NamedQuery(name = "Carros.findByAlugado", query = "SELECT c FROM Carros c WHERE c.alugado = :alugado")})
 public class Carros implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Size(max = 25)
-    @Column(name = "marca")
-    private String marca;
-    @Size(max = 25)
-    @Column(name = "modelo")
-    private String modelo;
-    @Column(name = "ano")
-    private Integer ano;
     @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
     @Column(name = "placa")
     private String placa;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 25)
+    @Column(name = "marca")
+    private String marca;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ano")
+    private int ano;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 25)
+    @Column(name = "modelo")
+    private String modelo;
     @Column(name = "alugado")
     private Boolean alugado;
 
@@ -55,6 +52,21 @@ public class Carros implements Serializable {
     }
 
     public Carros(String placa) {
+        this.placa = placa;
+    }
+
+    public Carros(String placa, String marca, int ano, String modelo) {
+        this.placa = placa;
+        this.marca = marca;
+        this.ano = ano;
+        this.modelo = modelo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
 
@@ -66,28 +78,20 @@ public class Carros implements Serializable {
         this.marca = marca;
     }
 
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
     public String getModelo() {
         return modelo;
     }
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public Integer getAno() {
-        return ano;
-    }
-
-    public void setAno(Integer ano) {
-        this.ano = ano;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
     }
 
     public Boolean getAlugado() {
@@ -120,7 +124,9 @@ public class Carros implements Serializable {
 
     @Override
     public String toString() {
-        return "com.locar.CRUD.Carros[ placa=" + placa + " ]";
+        return "Carros{" + "placa=" + placa + ", marca=" + marca + ", ano=" + ano + ", modelo=" + modelo + ", alugado=" + alugado + '}';
     }
+
+ 
     
 }

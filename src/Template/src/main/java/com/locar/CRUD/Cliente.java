@@ -1,26 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.locar.CRUD;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Felipe
- */
 @Entity
 @Table(name = "cliente")
 @XmlRootElement
@@ -37,8 +33,9 @@ public class Cliente implements Serializable {
     @Size(max = 25)
     @Column(name = "nome")
     private String nome;
+    @Temporal(TemporalType.DATE)
     @Column(name = "nasc")
-    private Integer nasc;
+    private Date nasc;
     @Id
     @Basic(optional = false)
     @NotNull
@@ -67,11 +64,11 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getNasc() {
+    public Date getNasc() {
         return nasc;
     }
 
-    public void setNasc(Integer nasc) {
+    public void setNasc(Date nasc) {
         this.nasc = nasc;
     }
 
@@ -121,7 +118,6 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "com.locar.CRUD.Cliente[ cpf=" + cpf + " ]";
-    }
-    
+        return "Cliente{" + "nome=" + nome + ", nasc=" + nasc + ", cpf=" + cpf + ", endereco=" + endereco + ", telefone=" + telefone + '}';
+    }    
 }

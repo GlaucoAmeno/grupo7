@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="UTF-8"></meta>
-	<title>LoCar</title>
+        <title>LoCar</title>
         <style>
             label {
                 width: 150px;
-		display: inline-block;
+                display: inline-block;
             }
 
             div {
@@ -22,74 +23,191 @@
             td {
                 padding: 20px;
             }
-	</style>
+        </style>
     </h:head>
     <h:body>
         <h1>LoCar - Locadora de Carros</h1>
-            <table>
-		<tr>
-                    <th>Carro</th>
-                    <th>Cliente</th>
-                    <th>Aluguel</th>
-		</tr>
-		<tr>
-                    <td>
-                        <h:form>
-                            <label>Marca</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Modelo</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Ano</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Placa</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
-                        </h:form>
-                    </td>
-                    <td>
-                        <h:form>
-                            <label>Nome</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Data de Nascimento</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>CPF</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Endereço</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>Telefone</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
-                        </h:form>
-                        
-                    </td>
-                    <td>
-                        <h:form>
-                            <label>Placa do Carro</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <label>CPF do Cliente</label>
-                            <h:inputText></h:inputText>
-                            <div></div>
-                            <center><h:commandButton value="Adicionar" ></h:commandButton></center>
-                        </h:form>
-                        
-                    </td>
-		</tr>
-            </table>
-            <hr></hr>
-            <table>
-                
-            </table>
+        <table>
+            <tr>
+                <th>Carro</th>
+                <th>Cliente</th>
+                <th>Aluguel</th>
+            </tr>
+            <tr>
+                <td>
+                    <h:form>
+                        <label>Marca</label>
+                        <h:inputText value="#{carroBean.marca}"></h:inputText>
+                        <div></div>
+                        <label>Modelo</label>
+                        <h:inputText value="#{carroBean.modelo}"></h:inputText>
+                        <div></div>
+                        <label>Ano</label>
+                        <h:inputText value="#{carroBean.ano}"></h:inputText>
+                        <div></div>
+                        <label>Placa</label>
+                        <h:inputText value="#{carroBean.placa}"></h:inputText>
+                        <div></div>
+                        <label>Alugado</label>
+                        <h:inputText value="#{carroBean.alugado }"></h:inputText>
+                        <div></div>
+                        <center>
+                            <h:commandButton value="Adicionar" actionListener="#{carroBean.gravar()}"></h:commandButton>
+                            <h:commandButton value="Modificar" actionListener="#{carroBean.editar()}"></h:commandButton>                        
+                        </center>
+                    </h:form>
+                </td>
+                <td>
+                    <h:form>
+                        <label>Nome</label>
+                        <h:inputText value="#{clienteBean.nome}"></h:inputText>
+                        <div></div>
+                        <label>Data de Nascimento</label>
+                        <h:inputText value="#{clienteBean.nasc}" converter="myDateTimeConverter"></h:inputText>
+                        <div></div>
+                        <label>CPF</label>
+                        <h:inputText value="#{clienteBean.cpf}"></h:inputText>
+                        <div></div>
+                        <label>Endereço</label>
+                        <h:inputText value="#{clienteBean.endereco}"></h:inputText>
+                        <div></div>
+                        <label>Telefone</label>
+                        <h:inputText value="#{clienteBean.telefone}"></h:inputText>
+                        <div></div>
+                        <center>
+                            <h:commandButton value="Adicionar" actionListener="#{clienteBean.gravar()}"></h:commandButton>
+                            <h:commandButton value="Modificar" actionListener="#{clienteBean.editar()}"></h:commandButton>
+                        </center>
+                    </h:form>
+                </td>
+                <td>
+                    <h:form>
+                        <label>ID</label>
+                        <h:inputText value="#{aluguelBean.id}"></h:inputText>
+                        <div></div>
+                        <label>Placa do Carro</label>
+                        <h:inputText value="#{aluguelBean.placa}"></h:inputText>
+                        <div></div>
+                        <label>CPF do Cliente</label>
+                        <h:inputText value="#{aluguelBean.cpf}"></h:inputText>
+                        <div></div>
+                        <label>Data de Locação</label>
+                        <h:inputText value="#{aluguelBean.dataLoc}" converter="myDateTimeConverter"></h:inputText>
+                        <div></div>
+                        <label>Data de Devolução</label>
+                        <h:inputText value="#{aluguelBean.dataDev}" converter="myDateTimeConverter"></h:inputText>
+                        <div></div>
+                        <center>
+                            <h:commandButton value="Adicionar" actionListener="#{aluguelBean.gravar()}"></h:commandButton>
+                            <h:commandButton value="Modificar" actionListener="#{aluguelBean.editar()}"></h:commandButton>
+                        </center>
+                    </h:form>
+                </td>
+            </tr>
+        </table>
         
+        <hr></hr>
+        <h1>Tabelas</h1>
+        <h:form>
+            <h3>Carros</h3>
+            <h:dataTable value="#{carroBean.obterCarros()}" var="car">
+                <h:column>
+                    <f:facet name="header">Marca</f:facet>  
+                    <center> <h:outputText value ="#{car.marca}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Modelo</f:facet>  
+                    <center> <h:outputText value ="#{car.modelo}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ano</f:facet>  
+                    <center> <h:outputText value ="#{car.ano}"/></center>
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Placa</f:facet>  
+                    <center> <h:outputText value ="#{car.placa}"/></center>
+                </h:column>                   
+                <h:column>
+                    <f:facet name="header">Alugado</f:facet>  
+                    <center> <h:outputText value ="#{car.alugado}"/></center>
+                </h:column> 
+                <h:column>
+                    <center><h:commandButton value="Excluir" action="#{carroBean.excluir(car.placa)}"></h:commandButton></center>
+                </h:column>
+                <h:column>
+                    <center><h:commandButton value="Editar" action="#{carroBean.load_data(car)}"></h:commandButton></center>
+                </h:column>
+            </h:dataTable>
+        </h:form> 
+        
+        <hr></hr>     
+        
+        <h:form>
+            <h3>Clientes</h3>
+            <h:dataTable value="#{clienteBean.obterClientes()}" var="cli">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>  
+                    <center> <h:outputText value ="#{cli.nome}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nascimento</f:facet>  
+                    <center> <h:outputText value ="#{cli.nasc}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CPF</f:facet>  
+                    <center> <h:outputText value ="#{cli.cpf}"/></center>
+                </h:column> 
+                <h:column>
+                    <f:facet name="header">Endereço</f:facet>  
+                    <center> <h:outputText value ="#{cli.endereco}"/></center>
+                </h:column>                   
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>  
+                    <center> <h:outputText value ="#{cli.telefone}"/></center>
+                </h:column> 
+                <h:column>
+                    <center><h:commandButton value="Excluir" action="#{clienteBean.excluir(cli.cpf)}"></h:commandButton></center>
+                </h:column>
+                <h:column>
+                    <center><h:commandButton value="Editar" action="#{clienteBean.load_data(cli)}"></h:commandButton></center>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        
+        <hr></hr>   
+        
+        <h:form>
+            <h3>Aluguéis</h3>
+            <h:dataTable value="#{aluguelBean.obterAluguel()}" var="alu">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>  
+                    <center> <h:outputText value ="#{alu.id}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Placa</f:facet>  
+                    <center> <h:outputText value ="#{alu.placa}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CPF</f:facet>  
+                    <center> <h:outputText value ="#{alu.cpf}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Locação</f:facet>  
+                    <center> <h:outputText value="#{alu.dataLoc}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Devolução</f:facet>  
+                    <center> <h:outputText value ="#{alu.dataDev}"/></center>
+                </h:column>
+                <h:column>
+                    <center><h:commandButton value="Excluir" action="#{aluguelBean.excluir(alu.id)}"></h:commandButton></center>
+                </h:column>
+                <h:column>
+                    <center><h:commandButton value="Editar" action="#{aluguelBean.load_data(alu)}"></h:commandButton></center>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
     </h:body>
 </html>
 

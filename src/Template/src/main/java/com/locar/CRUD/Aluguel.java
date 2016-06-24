@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.locar.CRUD;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,13 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author Felipe
- */
 @Entity
 @Table(name = "aluguel")
 @XmlRootElement
@@ -46,10 +40,12 @@ public class Aluguel implements Serializable {
     @Size(max = 15)
     @Column(name = "cpf")
     private String cpf;
+    @Temporal(TemporalType.DATE)
     @Column(name = "data_loc")
-    private Integer dataLoc;
+    private Date dataLoc;
+    @Temporal(TemporalType.DATE)
     @Column(name = "data_dev")
-    private Integer dataDev;
+    private Date dataDev;
 
     public Aluguel() {
     }
@@ -82,19 +78,19 @@ public class Aluguel implements Serializable {
         this.cpf = cpf;
     }
 
-    public Integer getDataLoc() {
+    public Date getDataLoc() {
         return dataLoc;
     }
 
-    public void setDataLoc(Integer dataLoc) {
+    public void setDataLoc(Date dataLoc) {
         this.dataLoc = dataLoc;
     }
 
-    public Integer getDataDev() {
+    public Date getDataDev() {
         return dataDev;
     }
 
-    public void setDataDev(Integer dataDev) {
+    public void setDataDev(Date dataDev) {
         this.dataDev = dataDev;
     }
 
@@ -120,7 +116,7 @@ public class Aluguel implements Serializable {
 
     @Override
     public String toString() {
-        return "com.locar.CRUD.Aluguel[ id=" + id + " ]";
+        return "Aluguel{" + "id=" + id + ", placa=" + placa + ", cpf=" + cpf + ", dataLoc=" + dataLoc + ", dataDev=" + dataDev + '}';
     }
     
 }
