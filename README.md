@@ -31,7 +31,7 @@ Este método recebe 1 parametro apenas sendo ele do tipo Date. O método deve c�
 
 Exemplo de retorno: "20 dias, 5 horas, 10 minutos e 23 segundos."
 
-    public String calcularTempoRestante(Date startDate, Date endDate)
+    public String calcularTempoRestante(Date data_dev)
 
 ---
 
