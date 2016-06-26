@@ -12,6 +12,7 @@ com\locar\Controllers\exceptions\PreexistingEntityException.class
 com\locar\CRUD\Aluguel_.class
 com\locar\CRUD\Carros.class
 com\locar\controller\exceptions\NonexistentEntityException.class
+converter\MyDateTimeConverter.class
 com\locar\Controllers\exceptions\NonexistentEntityException.class
 com\locar\CRUD\Carros_.class
 com\locar\controller\AluguelJpaController.class

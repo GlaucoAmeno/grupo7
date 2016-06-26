@@ -26,7 +26,7 @@
         </style>
     </h:head>
     <h:body>
-        <h1>LoCar - Locadora de Carros</h1>
+        <h1>LoCar - Locadora de Carros <h:outputText value ="#{calculosBean.calcularHorarioFuncionamento()}"/></h1>
         <table>
             <tr>
                 <th>Carro</th>
@@ -198,6 +198,14 @@
                 <h:column>
                     <f:facet name="header">Devolução</f:facet>  
                     <center> <h:outputText value ="#{alu.dataDev}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Tempo Restante</f:facet>  
+                    <center> <h:outputText value ="#{calculosBean.calcularTempoRestante(alu.dataDev)}"/></center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Multa</f:facet>  
+                    <center> <h:outputText value ="#{calculosBean.calcularMulta(alu.dataDev)}"/></center>
                 </h:column>
                 <h:column>
                     <center><h:commandButton value="Excluir" action="#{aluguelBean.excluir(alu.id)}"></h:commandButton></center>
