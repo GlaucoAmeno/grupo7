@@ -1,8 +1,8 @@
 package beans;
 
-import com.locar.CRUD.Carros;
-import com.locar.controller.CarrosJpaController;
-import com.locar.controller.exceptions.NonexistentEntityException;
+import crud.Carros;
+import controllers.CarrosJpaController;
+import exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

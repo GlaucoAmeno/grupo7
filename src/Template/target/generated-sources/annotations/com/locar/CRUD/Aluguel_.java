@@ -1,5 +1,6 @@
 package com.locar.CRUD;
 
+import crud.Aluguel;
 import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;

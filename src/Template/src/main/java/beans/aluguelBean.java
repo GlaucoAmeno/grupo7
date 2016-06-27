@@ -1,8 +1,8 @@
 package beans;
 
-import com.locar.CRUD.Aluguel;
-import com.locar.controller.AluguelJpaController;
-import com.locar.controller.exceptions.NonexistentEntityException;
+import crud.Aluguel;
+import controllers.AluguelJpaController;
+import exceptions.NonexistentEntityException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

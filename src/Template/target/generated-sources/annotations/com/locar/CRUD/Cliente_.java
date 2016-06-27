@@ -1,5 +1,6 @@
 package com.locar.CRUD;
 
+import crud.Cliente;
 import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;

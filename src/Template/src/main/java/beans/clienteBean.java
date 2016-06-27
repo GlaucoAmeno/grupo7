@@ -1,8 +1,8 @@
 package beans;
 
-import com.locar.CRUD.Cliente;
-import com.locar.controller.ClienteJpaController;
-import com.locar.controller.exceptions.NonexistentEntityException;
+import crud.Cliente;
+import controllers.ClienteJpaController;
+import exceptions.NonexistentEntityException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;

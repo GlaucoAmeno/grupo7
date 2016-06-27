@@ -1,5 +1,6 @@
 package com.locar.CRUD;
 
+import crud.Carros;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

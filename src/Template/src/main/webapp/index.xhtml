@@ -46,7 +46,9 @@
                         <h:inputText value="#{carroBean.ano}"></h:inputText>
                         <div></div>
                         <label>Placa</label>
-                        <h:inputText value="#{carroBean.placa}"></h:inputText>
+                        <h:inputText value="#{carroBean.placa}" validatorMessage="A placa do carro informada não obedece ao padrão definido">
+                            <f:validateRegex pattern="(([a-z]{3}|[A-Z]{3})-\d{4})" />
+                        </h:inputText>
                         <div></div>
                         <label>Alugado</label>
                         <h:inputText value="#{carroBean.alugado }"></h:inputText>
@@ -66,7 +68,9 @@
                         <h:inputText value="#{clienteBean.nasc}" converter="myDateTimeConverter"></h:inputText>
                         <div></div>
                         <label>CPF</label>
-                        <h:inputText value="#{clienteBean.cpf}"></h:inputText>
+                        <h:inputText value="#{clienteBean.cpf}" validatorMessage="O valor do cpf informado não obedece ao padrão definido">
+                            <f:validateRegex pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" />
+                        </h:inputText>
                         <div></div>
                         <label>Endereço</label>
                         <h:inputText value="#{clienteBean.endereco}"></h:inputText>
@@ -86,10 +90,14 @@
                         <h:inputText value="#{aluguelBean.id}"></h:inputText>
                         <div></div>
                         <label>Placa do Carro</label>
-                        <h:inputText value="#{aluguelBean.placa}"></h:inputText>
+                        <h:inputText value="#{aluguelBean.placa}" validatorMessage="A placa do carro informada não obedece ao padrão definido">
+                            <f:validateRegex pattern="(([a-z]{3}|[A-Z]{3})-\d{4})" />
+                        </h:inputText>
                         <div></div>
                         <label>CPF do Cliente</label>
-                        <h:inputText value="#{aluguelBean.cpf}"></h:inputText>
+                        <h:inputText value="#{aluguelBean.cpf}" validatorMessage="O valor do cpf informado não obedece ao padrão definido">
+                            <f:validateRegex pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" />
+                        </h:inputText>
                         <div></div>
                         <label>Data de Locação</label>
                         <h:inputText value="#{aluguelBean.dataLoc}" converter="myDateTimeConverter"></h:inputText>
